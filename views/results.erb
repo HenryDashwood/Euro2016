@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Result Page</title>
+  <link rel="stylesheet" type="text/css" href="/public/css/styles.css">
+</head>
+
+<header>
+  <a href="/matches/new">Add match</a> <a href="/teams/new">Add team</a> <a href="/matches">View matches</a> <a href="/teams">View teams</a>
+</header>
+<body>
+  <% @result.matches.each do |match| %>
+    <p><%= match.home_team.name %> <%= match.home_team_score %> - <%= match.away_team_score %> <%= match.away_team.name %></p>
+  <% end %>
+
+  <% @result.groups.each do |group| %>
+    <h2><%= group.name %></h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nation</th> 
+          <th>Matches</th>       
+          <th>Wins</th>       
+          <th>Draws</th>       
+          <th>Losses</th> 
+          <th>Goal Difference</th>      
+          <th>Points</th>        
+        </tr>
+      </thead>
+      <tbody>
+        <% @result.sort_group( group.teams ).each do |team| %>  
+          <tr>
+            <td><%= team.name %></td>
+            <td><%= @result.team_matches_played( team.id) %></td>
+            <td><%= @result.team_wins( team.id ) %></td>
+            <td><%= @result.team_draws( team.id ) %></td>
+            <td><%= @result.team_losses( team.id ) %></td>
+            <td><%= @result.team_goal_difference( team.id ) %></td>
+            <td><%= @result.team_points( team.id ) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</body>
+</html>

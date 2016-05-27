@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Matches Index</title>
+  </head>
+  <body>
+    <a href="/results">View Results</a> <a href="/matches">View Matches</a>
+
+    <br>
+
+    <% @matches.each do |match|  %>  
+      <a href="/matches/<%= match.id %>"><%= match.id  %></a>
+    <% end %>
+  </body>
+</html>
+
+

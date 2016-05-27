@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Teams Index</title>
+  </head>
+  <body>
+    <a href="/results">View Results</a> <a href="/teams">View Teams</a>
+    <br>
+    <% @teams.each do |team|  %>  
+      <a href="/teams/<%= team.id %>"><%= team.name  %></a>
+    <% end %>
+  </body>
+</html>

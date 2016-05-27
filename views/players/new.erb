@@ -1,0 +1,19 @@
+<h3>Add a Player</h3>
+
+<form action="/players" method="post">
+  <label for="title">Name</label> 
+  <input type="text" name="name"> 
+
+  <label for="team_id">Team</label> 
+  <select name ="team_id">
+    <% @teams.each do |team| %>
+      <option value="<%= team.id %>"> <%= team.name %> </option>
+    <% end %>
+  </select>
+
+  <input type='submit' value='Add Player'>
+</form>
+
+<br>
+<br>
+<a href="/players/show">Home</a>

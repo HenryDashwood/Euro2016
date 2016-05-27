@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Show Team</title>
+  </head>
+  <body>
+    <a href="/results">View Results</a> <a href="/teams">View Teams</a>
+
+    <h4>Name:</h4>
+    <p><%= @team.name %></p>
+
+    <a href="/teams/<%= @team.id %>/edit">Edit</a>
+  </body>
+</html>

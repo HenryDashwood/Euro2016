@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Show Matches</title>
+  </head>
+  <body>
+    <a href="/results">View Results</a> <a href="/matches">View Matches</a>
+
+    <h4>Match ID:</h4>
+    <p><%= @match.id %></p>
+    <p><%= @match.home_team.name %> <%= @match.home_team_score %> - <%= @match.away_team_score %> <%= @match.away_team.name %></p>
+
+    <a href="/matches/<%= @match.id %>/edit">Edit</a>
+  </body>
+</html>
+
+
+
+

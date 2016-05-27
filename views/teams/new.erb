@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Team</title>
+  </head>
+  <body>
+    <a href="/results">View Results</a> <a href="/teams">View Teams</a>
+
+    <h3>Add a Team</h3>
+
+    <form action="/teams" method="post">
+      <label for="title">Country:</label> 
+      <input type="text" name="name"> 
+
+      <label for="group_id">Team</label> 
+      <select name ="group_id">
+        <% @groups.each do |group| %>
+          <option value="<%= group.id %>"> <%= group.name %> </option>
+        <% end %>
+      </select>
+
+      <input type='submit' value='Add Team'>
+    </form>
+  </body>
+</html>

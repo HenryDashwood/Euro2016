@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Match</title>
+  </head>
+  <body>
+    <a href="/results">View Results</a> <a href="/matches">View Matches</a>
+
+    <h3>Sucessfully created new match!</h3>
+
+    <h4>Home Team</h4>
+    <p><%= @match.home_team.name %></p>
+
+    <h4>Away Team</h4>
+    <p><%= @match.away_team.name %></p>
+
+    <h4>Home Team Score</h4>
+    <p><%= @match.home_team_score %></p>
+
+    <h4>Away Team Score</h4>
+    <p><%= @match.away_team_score %></p>
+  </body>
+</html>
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Teams</title>
+  </head>
+  <body>
+    <a href="/results">View Results</a> <a href="/teams">View Teams</a>
+
+    <h1>Edit or delete a team</h1>
+
+    <form action="/teams/<%= @team.id%>" method="post">
+      <input type="hidden" name="_method" value="put">
+      <label for="title">Country:</label> 
+      <input type="text" name="name" value="<%= @team.name %>"> 
+
+      <label for="group_id">Team</label> 
+      <select name ="group_id">
+        <% @groups.each do |group| %>
+          <option value="<%= group.id %>" <%= "selected" if @team.group_id == group.id %>> <%= group.name %> </option>
+        <% end %>
+      </select>
+
+      <input type='submit' value='Edit Team'>
+    </form>
+
+    <form action="/teams/<%= @team.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete Team">
+    </form>
+  </body>
+</html>

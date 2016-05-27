@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Match</title>
+  </head>
+  <body>
+    <a href="/results">View Results</a> <a href="/matches">View Matches</a>
+
+    <form action="/matches" method="post"> 
+
+      <label for="home_team_id">Home Team</label> 
+        <select name ="home_team_id">
+          <% @teams.each do |team| %>
+            <option value="<%= team.id %>"> <%= team.name %> </option>
+          <% end %>
+        </select>
+
+        <label for="away_team_id">Away Team</label> 
+        <select name ="away_team_id">
+          <% @teams.each do |team| %>
+            <option value="<%= team.id %>"> <%= team.name %> </option>
+          <% end %>
+        </select>
+
+        <label for="home_team_score">Home Score</label> 
+        <input type="fixnum" name="home_team_score">
+        <label for="away_team_score">Away Score</label> 
+        <input type="fixnum" name="away_team_score">
+
+      <input type='submit' value='Edit Match'>
+
+    </form>
+
+    <form action="/matches/<%= @match.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete Match">
+    </form>
+  </body>
+</html>
+
+
+
